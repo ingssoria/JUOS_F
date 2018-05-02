@@ -1,0 +1,58 @@
+<div class="col-md-10 col-md-offset-1">
+  <div class="well well bs-component">
+    <form novalidate class="form-horizontal" (ngSubmit)="updateImage(image)" #editimgForm="ngForm">
+      <fieldset>
+        <legend>Actualizar Imagen: {{image.titulo}}</legend>
+        <div class="col-md-15 col-md-offset-2">
+          <div class="table-responsive">
+            <table class="table">
+              <tr>
+                <td><img src="{{image.thumbnail}}" width="200"></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="thumbnail" class="col-lg-2 control-label">Miniatura</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="thumbnail" name="thumbnail" placeholder="Miniatura de la Imagen" [(ngModel)]="image.thumbnail" #thumbnail="ngModel" required>
+            <div *ngIf="thumbnail.errors?.required && thumbnail.touched" class="alert alert-danger">
+              La minuitura es obligatoria
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="img_link" class="col-lg-2 control-label">Enlace Imagen</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="img_link" name="img_link" placeholder="Enlace de la Imagen" [(ngModel)]="image.img_link">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="titulo" class="col-lg-2 control-label">Titulo</label>
+          <div class="col-lg-10">
+            <input type="text" class="form-control" id="titulo" name="titulo" placeholder="Titulo" [(ngModel)]="image.titulo" #titulo="ngModel" required minlength="5">
+            <div *ngIf="titulo.errors?.required && titulo.touched" class="alert alert-danger">
+              El titulo es obligatorio
+            </div>
+            <div *ngIf="titulo.errors?.minlength && titulo.touched" class="alert alert-danger">
+              Debe contener como minimo de 5 caracteres
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="descripcion" class="col-lg-2 control-label">Descripcion</label>
+          <div class="col-lg-10">
+            <textarea class="form-control" rows="3" id="descripcion" name="descripcion" placeholder="Descripcion de la Imagen" [(ngModel)]="image.descripcion"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="form-group">
+        <div class="col-lg-10 col-lg-offset-2">
+          <a class="btn btn-default" [routerLink]="['/adminimage/images']">Cancelar</a>
+          <button type="submit" class="btn btn-primary" [disabled]="editimgForm.invalid">Actualizar</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

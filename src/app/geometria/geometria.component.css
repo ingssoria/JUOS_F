@@ -1,0 +1,44 @@
+h1{
+    text-align: center;
+}
+
+h1, label, #agregar{
+    color: #FF9933;
+}
+
+input{
+    color: #888888;
+}
+
+#container{
+    position: relative;
+    margin: auto;
+    width: 1500px;
+}
+
+#form_geometria{
+    color: white;
+    width: 450px;
+    margin-bottom: 10px;
+}
+
+#form_geometria td>label{
+    display: block;
+    margin-bottom: 5px;
+}
+
+#zonaFormulario{
+    border-bottom: solid thin #888888;
+}
+
+#zonaFiguras li{
+    margin: 9px 0 9px 0;
+    font-family: "Lucida Sans Unicode";
+    font-size: large;
+    list-style: none;
+}
+
+bdi{
+    color: #FF9933;
+    padding-right: 7px;
+}

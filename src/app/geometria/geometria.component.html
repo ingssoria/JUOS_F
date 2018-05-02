@@ -1,0 +1,57 @@
+<h1>Curso de TypeScript</h1>
+<section id="container">
+  <h3>Agregar Figura Geometrica</h3>
+  <section id="zonaFormulario">
+    <form id="form_geometria">
+      <table id="formulario_frame">
+        <tr>
+          <td>
+            <label>Tipo de Figura:
+              <label>
+                <input type="radio" name="figura" value="circulo" id="circulo">
+                Elipse
+              </label>
+              <label>
+                <input type="radio" name="figura" value="rectangulo" id="rectangulo">
+                Rectangulo
+              </label>
+              <label>
+                <input type="radio" name="figura" value="triangulo" id="triangulo">
+                Triangulo
+              </label>
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Centro:
+              <input type="number" placeholder="Indique Cordenada X" id="coor_x" [(ngModel)]="x" name="x">
+              <input type="number" placeholder="Indique Cordenada Y" id="coor_y" [(ngModel)]="y" name="y">
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Radio:
+              <input type="number" placeholder="Indique el radio" id="radio"  [(ngModel)]="radio" name="radio">
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="button" value="Agregar" id="agregar" (click)="agregarFigura()">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </section>
+  <section id="zonaFiguras">
+    <h3>Listado de Figuras Geometricas:</h3>
+    <ul id="listadoFiguras" *ngIf="figura">
+      <li *ngFor="let fig of figura.getListaCirculos()" class="figuras">
+        Centro: <bdi>{{fig.getCentro()}}</bdi> Radio: <bdi>{{fig.getRadio()}}</bdi> Perimetro: <bdi>{{fig.perimetro()}}</bdi> Area: <bdi>{{fig.area()}}</bdi>
+        <div id="contenedor"></div>
+      </li>
+    </ul>
+  </section>
+</section>

@@ -1,0 +1,30 @@
+<div class="col-md-10 col-md-offset-1">
+  <div>
+    <a [routerLink]="['/admin']" class="btn btn-default">Volver</a>
+    <!--<a [routerLink]="['/adminimage/images/create']" class="btn btn-success">Nueva Imagen</a>-->
+  </div>
+</div>
+
+<div class="col-md-10 col-md-offset-1">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Usuarios</th>
+        <th>Rol</th>
+        <th>Accion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let usuario of usuarios | async">
+        <td>{{usuario.name}}</td>
+        <td>{{usuario.role}}</td>
+        <td>
+          <a [routerLink]="['/adminimage/images/edit/', usuario.id]" class="btn btn-info"><i class="glyphicon glyphicon-pencil"></i></a>
+          <a [routerLink]="['/adminimage/images/delete/', usuario.id]" class="btn btn-danger"><i class="glyphicon glyphicon-remove-sign"></i></a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
